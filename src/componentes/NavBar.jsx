@@ -33,7 +33,7 @@ const NavBar = () => {
                 borderBottom: scrolled ? '1px solid #eee' : 'none',
                 transition: 'box-shadow 0.2s, border-bottom 0.2s',
             }}
-            className='bg-gray-100 text-xl'
+            className='bg-gray-100 text-xl max-[640px]:hidden'
         >
             <nav
                 style={{

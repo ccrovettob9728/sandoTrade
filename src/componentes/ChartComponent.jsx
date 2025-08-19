@@ -107,7 +107,7 @@ const ChartComponent = () => {
 
         const chart = createChart(chartContainerRef.current, {
             width: chartContainerRef.current.clientWidth,
-            height: 400,
+            height: chartContainerRef.current.clientHeight,
             layout: {
                 background: { type: ColorType.Solid, color: '#FFFFFF' },
                 textColor: '#333',
@@ -512,11 +512,11 @@ const ChartComponent = () => {
 
 
     return (
-        <div className="chart-container p-4">
-            <div className="flex flex-col gap-4">
+        <div className="flex p-4 w-full">
+            <div className="flex flex-col gap-4 w-full">
                 {/* Controls Row */}
-                <div className="flex items-center gap-4">
-                    <div className="flex gap-4 flex-1">
+                <div className="flex flex-col md:flex-row items-center gap-4 w-full">
+                    <div className="flex gap-4 w-full md:w-auto flex-1">
                         <div className="flex-1">
                             <select
                                 id="symbol-select"
@@ -546,30 +546,31 @@ const ChartComponent = () => {
                             </select>
                         </div>
                     </div>
-                    <div>
+                    <div className="w-full md:w-auto">
                         <button
                             onClick={generateAiSignal}
-                            className="bg-gradient-to-r flex-col from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-white font-bold py-2 px-6 rounded-lg shadow-lg transition-all"
+                            className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 hover:from-yellow-500 hover:to-yellow-700 text-white font-bold py-2 px-6 rounded-lg shadow-lg transition-all"
                             disabled={isAnalyzing}
                         >
                             {isAnalyzing ? 'Analizando...' : 'Consultar IA'}
                         </button>
                     </div>
-                    <div className="flex items-center gap-3">
+                    {/* Contenedor de botones de compra/venta y input */}
+                    <div className="flex items-center gap-3 w-full md:w-auto">
                         <button 
                             onClick={() => setTradingMode(tradingMode === 'buy' ? 'none' : 'buy')}
                             className={`${
                                 tradingMode === 'buy' 
                                     ? '!bg-blue-800 ring-2 ring-blue-400' 
                                     : '!bg-blue-600 hover:!bg-blue-700'
-                            } text-white font-bold py-2 px-8 rounded-lg shadow-lg transition-colors h-10 whitespace-nowrap`}
+                            } flex-1 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition-colors h-10 whitespace-nowrap`}
                         >
                             BUY
                         </button>
-                        <div>
+                        <div className="flex-1">
                             <input
                                 type="number"
-                                className="w-24 h-10 px-2 py-2 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-center"
+                                className="w-full h-10 px-2 py-2 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:ring-1 focus:ring-blue-500 text-center"
                                 placeholder="0.00"
                                 min="0"
                                 step="0.01"
@@ -581,7 +582,7 @@ const ChartComponent = () => {
                                 tradingMode === 'sell' 
                                     ? '!bg-red-800 ring-2 ring-red-400' 
                                     : '!bg-red-600 hover:!bg-red-700'
-                            } text-white font-bold py-2 px-8 rounded-lg shadow-lg transition-colors h-10 whitespace-nowrap`}
+                            } flex-1 text-white font-bold py-2 px-4 rounded-lg shadow-lg transition-colors h-10 whitespace-nowrap`}
                         >
                             SELL
                         </button>
@@ -630,7 +631,7 @@ const ChartComponent = () => {
                 </div>
 
                 {/* Chart */}
-                <div ref={chartContainerRef} className="lightweight-chart-wrapper">
+                <div ref={chartContainerRef} className=" flex lightweight-chart-wrapper">
                     {!isLoading && !error && !chartRef.current && (
                         <p>Selecciona un índice y temporalidad para cargar el gráfico.</p>
                     )}

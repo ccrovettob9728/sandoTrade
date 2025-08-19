@@ -6,14 +6,15 @@ import ChartComponent from './componentes/ChartComponent'
 import Home from './layout/Home'
 import { BrowserRouter as Router, Routes, Route  } from 'react-router-dom'
 import NavBar from './componentes/NavBar'
+import Sidebar from './componentes/SideBar'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <Router>
-      <NavBar />
-      <div className='bg-gray-100 py-20'></div>
+      <NavBar/>
+      <Sidebar className="min[640px]:hidden"/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/comunidad" element={<div>Nosotros Page</div>} />
