@@ -631,7 +631,7 @@ const ChartComponent = () => {
                 </div>
 
                 {/* Chart */}
-                <div ref={chartContainerRef} className=" flex lightweight-chart-wrapper">
+                <div ref={chartContainerRef} className="max-[640px]:w-75 max-[640px]:h-90 flex lightweight-chart-wrapper">
                     {!isLoading && !error && !chartRef.current && (
                         <p>Selecciona un índice y temporalidad para cargar el gráfico.</p>
                     )}

@@ -67,12 +67,12 @@ const Sidebar = () => {
             >
                 <div className="flex items-center justify-between p-3 border-b border-gray-200">
                     <span className="flex items-center pl-2 mr-5">
-                    <img src={logoNav} alt="Logo" className="h-10  mr-2" />
-                    <span className="text-xl font-bold text-gray-800">
-                        Mercado
-                        <span className="text-yellow-400 ">Trade</span>
+                        <img src={logoNav} alt="Logo" className="h-10  mr-2" />
+                        <span className="text-xl font-bold text-gray-800">
+                            Mercado
+                            <span className="text-yellow-400 ">Trade</span>
+                        </span>
                     </span>
-                </span>
                     <button onClick={toggleSidebar} className="text-gray-500 ml-5 hover:text-gray-700 focus:outline-none transition-colors">
                         {/* SVG para la flecha de "cerrar" */}
                         <svg
@@ -96,7 +96,9 @@ const Sidebar = () => {
                                     href="#"
                                     className="block text-gray-600 hover:bg-gray-100 rounded-md p-2 transition-colors duration-200 font-bold"
                                 >
-                                    {item.name}
+                                    <span className="text-md font-bold text-gray-800">
+                                        {item.name}
+                                    </span>
                                 </a>
                             </li>
                         ))}

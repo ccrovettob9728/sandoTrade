@@ -7,12 +7,12 @@ import TestimonialSlider from "../componentes/TestimonialSlider";
 
 export default function Home() {
     return (
-        <div className="w-full bg-gray-100 mt-30 flex flex-col items-center p-4 md:p-8">
+        <div className="w-full bg-gray-100 mt-20 md:mt-30 flex flex-col items-center p-4 md:p-8">
             <main className="w-full">
                 {/* Contenedor principal para las tres secciones superiores */}
-                <div className="flex flex-col md:flex-row justify-center gap-4 mb-8">
+                <div className=" flex-col md:flex-row flex justify-center gap-4 mb-8">
                     {/* Sección de Login */}
-                    <div className="w-full sm:w-1/4 md:w-1/3">
+                    <div className="w-full flex sm:w-1/4 order-2 md:w-1/3">
                         <section className="bg-white rounded-lg shadow p-6 flex flex-col items-center h-full">
                             <h2 className="text-xl font-semibold mb-2 text-center">Potencia tu trading con MercadoTrade!</h2>
                             <p className="text-gray-600 text-center my-4">
@@ -25,16 +25,20 @@ export default function Home() {
                     </div>
 
                     {/* Sección del Gráfico */}
-                    <div className="w-full ">
+                    <span className="text-3xl font-bold text-gray-800">
+                        Prueba la <span className="text-yellow-400">IA</span> de Mercado
+                        <span className="text-yellow-400">Trade</span>
+                    </span>
+                    <div className="w-full my-4 order-1 flex h-full">
                         <div className="bg-white rounded-lg shadow p-6 flex items-center h-full">
-                            <div className="w-full">
+                            <div className="w-full h-full">
                                 <ChartComponent />
                             </div>
                         </div>
                     </div>
 
                     {/* Sección de Testimonios y CTA */}
-                    <div className="w-full md:w-1/3">
+                    <div className="w-full flex order-3 md:w-1/3">
                         <div className="bg-white rounded-lg shadow p-6 flex flex-col items-center justify-between gap-8 h-full">
                             <div className="w-full">
                                 <h2 className="text-xl font-semibold mb-4 text-center">Lo que dicen nuestros usuarios</h2>
